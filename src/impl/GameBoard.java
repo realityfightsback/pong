@@ -14,8 +14,8 @@ public class GameBoard extends JFrame {
 	private Image dbImage;
 	private Graphics dbg;
 
-	int screenHeight = Toolkit.getDefaultToolkit().getScreenSize().height;
-	int screenWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
+	private int screenHeight;
+	private int screenWidth;
 
 	Ball ball = new Ball();
 	Paddle playerOnePaddle;
@@ -23,9 +23,12 @@ public class GameBoard extends JFrame {
 
 	ScoreBoard scoreBoard = new ScoreBoard();
 
-	public GameBoard() throws HeadlessException {
+	public GameBoard(int screenHeight, int screenWidth) {
 		super();
 
+		this.screenHeight = screenHeight;
+		this.screenWidth = screenWidth;
+		
 		playerOnePaddle = new Paddle(screenWidth, screenHeight);
 		playerTwoPaddle = new Paddle(screenWidth, screenHeight);
 
@@ -39,6 +42,7 @@ public class GameBoard extends JFrame {
 		setVisible(true);
 
 	}
+
 
 	// Uses double buffering
 	@Override
