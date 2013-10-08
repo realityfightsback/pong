@@ -1,6 +1,7 @@
 package controlListeners;
 
 import impl.Paddle;
+import impl.Pong;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -20,10 +21,10 @@ public class Keyboard extends KeyAdapter {
 
 		switch (e.getKeyCode()) {
 		case KeyEvent.VK_DOWN:
-			p1.updateY(5);
+			p1.updateY(Pong.paddleSpeed);
 			break;
 		case KeyEvent.VK_UP:
-			p1.updateY(-5);
+			p1.updateY(-Pong.paddleSpeed);
 					break;
 		default:
 			break;

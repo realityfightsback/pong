@@ -6,7 +6,7 @@ import java.awt.geom.Point2D;
 
 public class Ball {
 
-	public static final int size = 15;
+	public int size = 15;
 
 	int x, y, xSpeed, ySpeed;
 
@@ -61,8 +61,8 @@ public class Ball {
 	}
 
 	public void setStartLocation(Paddle p1) {
-		this.setX(p1.x + p1.width);
-		this.setY(p1.y + p1.height - (this.size / 2));
+		this.setX(p1.getX() + p1.getWidth());
+		this.setY(p1.getY() + p1.getHeight() - (this.size / 2));
 
 		updateCircle();
 	}
@@ -131,7 +131,7 @@ public class Ball {
 
 	public boolean hitPaddle(Paddle playerOnePaddle, Paddle playerTwoPaddle) {
 
-		return (circle.intersects(playerOnePaddle.rectangle) || circle
-				.intersects(playerTwoPaddle.rectangle));
+		return (circle.intersects(playerOnePaddle.getCollisionBox()) || circle
+				.intersects(playerTwoPaddle.getCollisionBox()));
 	}
 }
